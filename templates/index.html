@@ -1,0 +1,30 @@
+<header class="header header--default">
+    <div class="header-container">
+        <div class="header-search__form js-release-search-wrapper">
+            <div class="text-left">
+                <h1>covid_app</h1>
+                <form action="/" method="POST">
+                    <p>countries:<input type="text" name="countries"></p>
+                    <p>extremum:<input type="int" name="extremum"></p>
+                    <button type="submit">送信</button>
+                </form>
+                <div class="search_result">
+                    <img src="data:image/png;base64,{{ img }}" />
+                </div>
+                <form action="/Initialization">
+                    <button type="submit">画像をリセットする</button>
+                </form>
+                <form action="/extremum">
+                    <button type="submit">極値を確認する</button>
+                </form>
+
+                {% for dates,title,url in urls %}
+                    <p>{{dates}}</p>
+                    {% for t in title %}
+                        <li>{{t}}, {{url[loop.index0]}}</li>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</header>
